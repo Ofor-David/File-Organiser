@@ -24,18 +24,22 @@ def scan_dir(target_dir):
             source_dir = os.path.join(target_dir, f)
             print(f'source_dir: {type(source_dir)}')
             
-            # target direcory
-            dest_dir = os.path.join(target_dir, parts[0], parts[1])
-            print(f'dest_dir: {dest_dir}')
+            # target directory
+            dir_to_use = target_dir
+            for subdir in parts[:-1]:
+                # create a variable that that adds a subdir each loop and use the var after the final loop
+                dir_to_use = os.path.join(dir_to_use,subdir)
+                
+            print(f'dest_dir: {dir_to_use}')
             
             # move new file to create
-            print(f'new file: {os.path.join(dest_dir, parts[-1])}')
+            print(f'new file: {os.path.join(dir_to_use, parts[-1])}')
             
             # create new folders if it doesnt exist
-            os.makedirs(dest_dir, exist_ok=True)
+            os.makedirs(dir_to_use, exist_ok=True)
             
             # move and rename file
-            shutil.move(source_dir, os.path.join(dest_dir, parts[-1]))
+            shutil.move(source_dir, os.path.join(dir_to_use, parts[-1]))
         
     
     
@@ -43,6 +47,6 @@ if __name__ == '__main__':
     
     # analyze current directory
     cwd = os.getcwd()
-    print(f'cwd: {cwd}')
+    
     scan_dir(cwd)
     
