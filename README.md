@@ -22,8 +22,8 @@ File-Organiser is a Python script designed to help you organize your files effic
     pip install -r requirements.txt
     ```
 ## Usage
-In the directory where this script is runing, create any file and name it in this format. `_projects-python-test-dummy.py`
-.This would save the file in `source/projects/python/test/dummy.py` where `source` is the directory you put the script. You can use any directory name of your choice.
+In the directory where this script is runing, create or rename any file and name it in this format. `_projects-python-test-dummy.py`
+.This would save the file in `source/projects/python/test/dummy.py` where `source` is the parent directory of the script. You can use any directory name of your choice.
 
 Make sure to start with an `_` and seperate each directory name by `-`, the last part would be used for the filename. You can chain as many directories as you want. if a directory doesn't exist, the script automatically creates the directory.
 
